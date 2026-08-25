@@ -1043,7 +1043,7 @@
     </section>
 
     <!-- ==========================================
-    CONTACTO - CORREGIDO (CUADROS MÁS GRANDES)
+    CONTACTO - CON BOTÓN DE GMAIL
     ========================================== -->
     <section id="contacto" class="container py-4 pb-5">
         <div class="section-title"><i class="fas fa-envelope"></i> Contacto</div>
@@ -1093,12 +1093,17 @@
                             <p class="text-muted mt-2" style="font-size: 0.9rem;">Haz clic para contactarme directamente por WhatsApp</p>
                         </div>
 
-                        <!-- Botón de correo (debajo) - Usa mailto: -->
+                        <!-- Botón de Gmail (abre en el navegador) -->
                         <div class="text-center mt-3">
-                            <a href="mailto:victor.fdz.fcf@gmail.com?subject=Contacto%20desde%20Portafolio&body=Hola%20Víctor%2C%20me%20interesa%20conocer%20más%20sobre%20tus%20servicios%20de%20desarrollo%20web." class="btn btn-primary btn-lg px-5 py-3" style="background: var(--gradient-main); border: none; border-radius: 30px; font-weight: 600; font-size: 1.1rem;">
-                                <i class="fas fa-paper-plane me-2"></i> Enviar correo
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=victor.fdz.fcf@gmail.com&su=Contacto%20desde%20Portafolio&body=Hola%20V%C3%ADctor%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20tus%20servicios%20de%20desarrollo%20web."
+                               target="_blank"
+                               class="btn btn-primary btn-lg px-5 py-3"
+                               style="background: var(--gradient-main); border: none; border-radius: 30px; font-weight: 600; font-size: 1.1rem; transition: var(--transition);"
+                               onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 25px rgba(26, 41, 128, 0.3)';"
+                               onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+                                <i class="fas fa-envelope me-2"></i> Enviar por Gmail
                             </a>
-                            <p class="text-muted mt-2" style="font-size: 0.9rem;">Abre tu cliente de correo (Gmail, Outlook, etc.)</p>
+                            <p class="text-muted mt-2" style="font-size: 0.9rem;">Se abrirá Gmail en una nueva pestaña con el mensaje listo</p>
                         </div>
                     </div>
                 </div>
