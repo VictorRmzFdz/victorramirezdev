@@ -603,8 +603,9 @@
                 flex-direction: column;
                 gap: 0.3rem;
             }
+            /* ==== IMÁGENES MÁS GRANDES EN MÓVIL ==== */
             .proyecto-imagen {
-                height: 150px;
+                height: 320px;
             }
             .miniaturas-container {
                 padding: 3px 8px;
@@ -1104,7 +1105,6 @@
 
                         <!-- Botón de correo inteligente -->
                         <div class="text-center mt-3">
-                            <!-- PC: Gmail | Móvil: mailto -->
                             <a href="mailto:victor.fdz.fcf@gmail.com?subject=Contacto%20desde%20Portafolio&body=Hola%20V%C3%ADctor%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20tus%20servicios%20de%20desarrollo%20web."
                                id="btn-correo-contacto"
                                class="btn btn-primary btn-lg px-5 py-3"
@@ -1212,14 +1212,12 @@
             var btnCorreoHero = document.getElementById('btn-correo-hero');
             var btnCorreoContacto = document.getElementById('btn-correo-contacto');
 
-            // Función para determinar si es móvil
             function esMovil() {
                 return window.innerWidth <= 576 || /Android|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile/i.test(navigator.userAgent);
             }
 
             function configurarBotones() {
                 if (esMovil()) {
-                    // Móvil: mailto: (abre app de correo)
                     var mailtoLink = 'mailto:victor.fdz.fcf@gmail.com?subject=Contacto%20desde%20Portafolio&body=Hola%20V%C3%ADctor%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20tus%20servicios%20de%20desarrollo%20web.';
 
                     if (btnCorreoHero) {
@@ -1232,7 +1230,6 @@
                         btnCorreoContacto.target = '_self';
                     }
                 } else {
-                    // PC: Gmail (abre en navegador)
                     var gmailLink = 'https://mail.google.com/mail/?view=cm&fs=1&to=victor.fdz.fcf@gmail.com&su=Contacto%20desde%20Portafolio&body=Hola%20V%C3%ADctor%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20tus%20servicios%20de%20desarrollo%20web.';
 
                     if (btnCorreoHero) {
@@ -1247,10 +1244,8 @@
                 }
             }
 
-            // Ejecutar al cargar
             configurarBotones();
 
-            // Reconfigurar al redimensionar la ventana (útil para cuando cambias de tamaño)
             var timer;
             window.addEventListener('resize', function() {
                 clearTimeout(timer);
