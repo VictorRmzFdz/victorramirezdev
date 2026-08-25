@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Profesional - Víctor Ramírez Fernández</title>
+    <meta name="description" content="Desarrollador Web Full-Stack con más de 6 años de experiencia en PHP, especializado en la creación de sistemas empresariales a medida.">
+    <!-- Bootstrap 5 (CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* ==========================================
+           ESTILOS PERSONALIZADOS DEL PORTAFOLIO
+           ========================================== */
+        :root {
+            --primary-color: #1a2980;
+            --secondary-color: #26a0da;
+            --gradient-main: linear-gradient(135deg, #1a2980, #26a0da);
+            --dark-bg: #0f172a;
+            --card-bg: #ffffff;
+            --text-light: #f8fafc;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --border-radius: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* ==========================================
+           BARRA SUPERIOR DE NAVEGACIÓN
+           ========================================== */
+        .navbar-portafolio {
+            background: var(--gradient-main) !important;
+            padding: 0.8rem 2rem;
+            box-shadow: 0 4px 20px rgba(26, 41, 128, 0.3);
+        }
+        .navbar-portafolio .navbar-brand {
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: white !important;
+            letter-spacing: -0.5px;
+        }
+        .navbar-portafolio .navbar-brand i {
+            margin-right: 10px;
+        }
+        .navbar-portafolio .nav-link {
+            color: rgba(255,255,255,0.85) !important;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 1rem !important;
+            border-radius: 8px;
+        }
+        .navbar-portafolio .nav-link:hover {
+            color: white !important;
+            background: rgba(255,255,255,0.15);
+        }
+        .navbar-portafolio .nav-link i {
+            margin-right: 6px;
+        }
+
+        /* ==========================================
+           SECCIÓN HERO (PERFIL) CON FOTO
+           ========================================== */
+        .hero-section {
+            padding: 4rem 0 3rem 0;
+            background: var(--gradient-main);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: -40%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* ==== AVATAR CON FOTO ==== */
+        .hero-avatar {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 1.5rem;
+            border: 4px solid rgba(255,255,255,0.6);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+            background: rgba(255,255,255,0.15);
+        }
+        .hero-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .hero-avatar .avatar-fallback {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            font-size: 4.5rem;
+            color: white;
+        }
+
+        .hero-section h1 {
+            font-weight: 800;
+            font-size: 2.8rem;
+            letter-spacing: -1px;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-section .badge-titulo {
+            background: rgba(255,255,255,0.2);
+            padding: 0.4rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            backdrop-filter: blur(4px);
+            margin-top: 0.3rem;
+        }
+        .hero-section .resumen {
+            max-width: 700px;
+            margin: 1.2rem auto 0;
+            font-size: 1.05rem;
+            opacity: 0.9;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-contactos {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            margin-top: 1.8rem;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-contactos a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(4px);
+        }
+        .hero-contactos a:hover {
+            color: white;
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* ==========================================
+           TECNOLOGÍAS (HABILIDADES)
+           ========================================== */
+        .section-title {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .section-title i {
+            color: var(--secondary-color);
+        }
+        .tech-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 1.5rem 1.2rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            height: 100%;
+            transition: var(--transition);
+            border: 1px solid #e9edf2;
+        }
+        .tech-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(26, 41, 128, 0.12);
+        }
+        .tech-card h5 {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+        }
+        .tech-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .tech-card ul li {
+            padding: 0.25rem 0;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tech-card ul li i {
+            color: var(--secondary-color);
+            font-size: 0.8rem;
+        }
+
+        /* ==========================================
+           ADMINISTRACIÓN DE SERVIDORES
+           ========================================== */
+        .servidor-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 1.5rem 1.2rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            height: 100%;
+            transition: var(--transition);
+            border: 1px solid #e9edf2;
+            border-top: 4px solid var(--secondary-color);
+        }
+        .servidor-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(26, 41, 128, 0.12);
+        }
+        .servidor-card .icono {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .servidor-card h5 {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.3rem;
+        }
+        .servidor-card .descripcion {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 0.8rem;
+        }
+        .servidor-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .servidor-card ul li {
+            padding: 0.2rem 0;
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .servidor-card ul li i {
+            color: var(--secondary-color);
+            font-size: 0.7rem;
+        }
+
+        /* ==========================================
+           PROYECTOS CON IMÁGENES Y MINIATURAS
+           ========================================== */
+        .proyecto-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            transition: var(--transition);
+            height: 100%;
+            border: 1px solid #e9edf2;
+            display: flex;
+            flex-direction: column;
+        }
+        .proyecto-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(26, 41, 128, 0.13);
+        }
+
+        /* ==== CONTENEDOR DE LA IMAGEN ==== */
+        .proyecto-imagen {
+            height: 220px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #e8edf5, #d5dce8);
+            position: relative;
+            flex-shrink: 0;
+        }
+        .proyecto-imagen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .proyecto-card:hover .proyecto-imagen img {
+            transform: scale(1.03);
+        }
+        .proyecto-imagen .fallback-icono {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            font-size: 4rem;
+            color: var(--primary-color);
+            opacity: 0.3;
+        }
+
+        /* ==== GALERÍA DE MINIATURAS ==== */
+        .miniaturas-container {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+            background: rgba(0,0,0,0.55);
+            padding: 5px 12px;
+            border-radius: 25px;
+            backdrop-filter: blur(6px);
+            z-index: 5;
+        }
+        .miniatura-item {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+            opacity: 0.7;
+        }
+        .miniatura-item:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        .miniatura-item.activa {
+            border-color: var(--secondary-color);
+            opacity: 1;
+        }
+        .miniatura-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ==== INDICADOR DE MÁS IMÁGENES ==== */
+        .badge-multi-imagen {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            font-size: 0.65rem;
+            padding: 2px 10px;
+            border-radius: 20px;
+            backdrop-filter: blur(4px);
+            z-index: 5;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .proyecto-header {
+            padding: 1rem 1.5rem 0.2rem 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+        .proyecto-header .icono {
+            font-size: 1.8rem;
+            line-height: 1;
+        }
+        .proyecto-header .categoria {
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--secondary-color);
+            background: rgba(38, 160, 218, 0.1);
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+        }
+        .proyecto-card .body {
+            padding: 0.5rem 1.5rem 1rem 1.5rem;
+            flex: 1;
+        }
+        .proyecto-card .body h4 {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin-bottom: 0.4rem;
+        }
+        .proyecto-card .body p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+        .proyecto-card .body .caracteristicas {
+            list-style: none;
+            padding: 0;
+            margin: 0.5rem 0 0 0;
+        }
+        .proyecto-card .body .caracteristicas li {
+            font-size: 0.8rem;
+            color: var(--text-dark);
+            padding: 0.15rem 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .proyecto-card .body .caracteristicas li i {
+            color: var(--secondary-color);
+            font-size: 0.6rem;
+        }
+        .proyecto-card .footer {
+            padding: 0.6rem 1.5rem 1rem 1.5rem;
+            border-top: 1px solid #f0f2f5;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            flex-shrink: 0;
+        }
+        .proyecto-card .footer .tech-tag {
+            background: #f1f4f9;
+            padding: 0.15rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* ==========================================
+           MODAL PARA IMAGEN EN GRANDE
+           ========================================== */
+        .modal-imagen-content {
+            background: transparent;
+            border: none;
+            box-shadow: none;
+        }
+        .modal-imagen-content .modal-body {
+            padding: 0;
+            text-align: center;
+        }
+        .modal-imagen-content img {
+            max-width: 100%;
+            max-height: 85vh;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        .btn-cerrar-modal {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            z-index: 1050;
+            background: rgba(0,0,0,0.5);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .btn-cerrar-modal:hover {
+            background: rgba(0,0,0,0.7);
+            transform: rotate(90deg);
+        }
+
+        /* ==========================================
+           FOOTER
+           ========================================== */
+        .footer-portafolio {
+            background: var(--dark-bg);
+            color: rgba(255,255,255,0.7);
+            padding: 2.5rem 0;
+            margin-top: 3rem;
+        }
+        .footer-portafolio a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .footer-portafolio a:hover {
+            color: white;
+        }
+
+        /* ==========================================
+           RESPONSIVE
+           ========================================== */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            .hero-section .resumen {
+                font-size: 0.95rem;
+            }
+            .hero-avatar {
+                width: 120px;
+                height: 120px;
+            }
+            .navbar-portafolio {
+                padding: 0.5rem 1rem;
+            }
+            .section-title {
+                font-size: 1.4rem;
+            }
+            .proyecto-imagen {
+                height: 170px;
+            }
+            .miniaturas-container {
+                padding: 4px 10px;
+                gap: 4px;
+            }
+            .miniatura-item {
+                width: 22px;
+                height: 22px;
+            }
+        }
+        @media (max-width: 576px) {
+            .hero-contactos {
+                flex-direction: column;
+                align-items: center;
+            }
+            .hero-contactos a {
+                width: 100%;
+                justify-content: center;
+            }
+            .proyecto-header {
+                flex-direction: column;
+                gap: 0.3rem;
+            }
+            .proyecto-imagen {
+                height: 150px;
+            }
+            .miniaturas-container {
+                padding: 3px 8px;
+                gap: 3px;
+            }
+            .miniatura-item {
+                width: 18px;
+                height: 18px;
+            }
+        }
+
+        /* Scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+    BARRA DE NAVEGACIÓN
+    ========================================== -->
+    <nav class="navbar navbar-expand-lg navbar-portafolio">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-code"></i> VRF Dev
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#perfil"><i class="fas fa-user"></i> Perfil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tecnologias"><i class="fas fa-cogs"></i> Tecnologías</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#servidores"><i class="fas fa-server"></i> Servidores</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#proyectos"><i class="fas fa-folder-open"></i> Proyectos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto"><i class="fas fa-envelope"></i> Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==========================================
+    SECCIÓN HERO (PERFIL) CON FOTO
+    ========================================== -->
+    <section id="perfil" class="hero-section">
+        <div class="container text-center">
+            <!-- ==== AVATAR CON FOTO ==== -->
+            <div class="hero-avatar">
+                <img src="images/portafolio/perfil.jpg" alt="Víctor Ramírez Fernández" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'avatar-fallback\'><i class=\'fas fa-user-circle\'></i></div>'">
+            </div>
+            <!-- ==== FIN AVATAR ==== -->
+
+            <h1>Víctor Ramírez Fernández</h1>
+            <div class="badge-titulo">
+                <i class="fas fa-graduation-cap"></i> Ingeniero en Computación Administrativa
+            </div>
+            <p class="resumen">
+                Desarrollador Web Full-Stack con más de 6 años de experiencia en PHP,<br>
+                especializado en la creación de sistemas empresariales a medida.<br>
+                He diseñado e implementado soluciones completas para control de inventarios,<br>
+                mantenimiento de vehículos, gestión de asistencia y producción,<br>
+                optimizando procesos y reduciendo costos operativos.<br>
+                Mi pasión es transformar necesidades complejas en aplicaciones web robustas,<br>
+                escalables y fáciles de usar, siempre enfocado en ofrecer valor tangible a los negocios.
+            </p>
+            <div class="hero-contactos">
+                <a href="mailto:victor.fdz.fcf@gmail.com"><i class="fas fa-envelope"></i> victor.fdz.fcf@gmail.com</a>
+                <a href="tel:8991261109"><i class="fas fa-phone"></i> 899 126 1109</a>
+                <a href="https://www.linkedin.com/in/victor-ram%C3%ADrez-fern%C3%A1ndez/" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+    TECNOLOGÍAS Y HABILIDADES
+    ========================================== -->
+    <section id="tecnologias" class="container py-5">
+        <div class="section-title"><i class="fas fa-cogs"></i> Tecnologías y Habilidades</div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="tech-card">
+                    <h5><i class="fas fa-server" style="color: var(--secondary-color);"></i> Backend</h5>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> PHP (Avanzado - 6 años)</li>
+                        <li><i class="fas fa-check-circle"></i> Python (Intermedio)</li>
+                        <li><i class="fas fa-check-circle"></i> C# (Intermedio)</li>
+                        <li><i class="fas fa-check-circle"></i> Java (Intermedio)</li>
+                        <li><i class="fas fa-check-circle"></i> Laravel (Intermedio)</li>
+                        <li><i class="fas fa-check-circle"></i> ASP.NET MVC5 (Intermedio)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="tech-card">
+                    <h5><i class="fas fa-database" style="color: var(--secondary-color);"></i> Bases de Datos</h5>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> MySQL (Workbench)</li>
+                        <li><i class="fas fa-check-circle"></i> SQL Server</li>
+                        <li><i class="fas fa-check-circle"></i> Diseño de esquemas</li>
+                        <li><i class="fas fa-check-circle"></i> Optimización de consultas</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="tech-card">
+                    <h5><i class="fas fa-laptop-code" style="color: var(--secondary-color);"></i> Frontend</h5>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> HTML5</li>
+                        <li><i class="fas fa-check-circle"></i> CSS3</li>
+                        <li><i class="fas fa-check-circle"></i> JavaScript (Intermedio - 5 años)</li>
+                        <li><i class="fas fa-check-circle"></i> jQuery</li>
+                        <li><i class="fas fa-check-circle"></i> Bootstrap</li>
+                        <li><i class="fas fa-check-circle"></i> AJAX</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="tech-card">
+                    <h5><i class="fas fa-tools" style="color: var(--secondary-color);"></i> Herramientas</h5>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Git / GitHub</li>
+                        <li><i class="fas fa-check-circle"></i> Linux (Debian, Ubuntu, Kali)</li>
+                        <li><i class="fas fa-check-circle"></i> Windows Server</li>
+                        <li><i class="fas fa-check-circle"></i> Packet Tracer</li>
+                        <li><i class="fas fa-check-circle"></i> Metodología SCRUM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="tech-card">
+                    <h5><i class="fas fa-ellipsis-h" style="color: var(--secondary-color);"></i> Otras Competencias</h5>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Soporte Técnico (Avanzado)</li>
+                        <li><i class="fas fa-check-circle"></i> Instalación de Hardware/Software</li>
+                        <li><i class="fas fa-check-circle"></i> Redes (Intermedio)</li>
+                        <li><i class="fas fa-check-circle"></i> Ofimática</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="tech-card">
+                    <h5><i class="fas fa-project-diagram" style="color: var(--secondary-color);"></i> Metodología</h5>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> SCRUM</li>
+                        <li><i class="fas fa-check-circle"></i> Desarrollo Ágil</li>
+                        <li><i class="fas fa-check-circle"></i> Control de Versiones (Git)</li>
+                        <li><i class="fas fa-check-circle"></i> Documentación Técnica</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+    ADMINISTRACIÓN DE SERVIDORES
+    ========================================== -->
+    <section id="servidores" class="container py-4">
+        <div class="section-title"><i class="fas fa-server"></i> Administración de Servidores</div>
+        <p class="text-muted mb-4" style="font-size: 1.05rem;">Experiencia en configuración, mantenimiento y seguridad de servidores Linux para entornos de producción y desarrollo.</p>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="servidor-card">
+                    <span class="icono">🐧</span>
+                    <h5>Distribuciones Linux</h5>
+                    <p class="descripcion">Experiencia en administración de múltiples distribuciones Linux para entornos de desarrollo y producción.</p>
+                    <ul>
+                        <li><i class="fas fa-circle"></i> Debian 12 y 13 (Servidor principal)</li>
+                        <li><i class="fas fa-circle"></i> Ubuntu Server (Entornos de desarrollo)</li>
+                        <li><i class="fas fa-circle"></i> Kali Linux (Seguridad y pruebas)</li>
+                        <li><i class="fas fa-circle"></i> CentOS / RHEL (Compatibilidad empresarial)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="servidor-card">
+                    <span class="icono">🖥️</span>
+                    <h5>Servicios y Configuración</h5>
+                    <p class="descripcion">Configuración y mantenimiento de servicios esenciales para el funcionamiento de aplicaciones web.</p>
+                    <ul>
+                        <li><i class="fas fa-circle"></i> Apache2 (VirtualHosts, mod_rewrite, SSL/TLS)</li>
+                        <li><i class="fas fa-circle"></i> Nginx (Proxy inverso, balanceo de carga)</li>
+                        <li><i class="fas fa-circle"></i> MySQL / MariaDB (Instalación, optimización, respaldos)</li>
+                        <li><i class="fas fa-circle"></i> PHP (Configuración, extensiones, opcache)</li>
+                        <li><i class="fas fa-circle"></i> FTP Server (vsftpd, proftpd)</li>
+                        <li><i class="fas fa-circle"></i> Postfix / Sendmail (Servicios de correo)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="servidor-card">
+                    <span class="icono">🔒</span>
+                    <h5>Seguridad y Monitoreo</h5>
+                    <p class="descripcion">Implementación de medidas de seguridad y monitoreo para proteger servidores y aplicaciones.</p>
+                    <ul>
+                        <li><i class="fas fa-circle"></i> Firewall (iptables, ufw, fail2ban)</li>
+                        <li><i class="fas fa-circle"></i> SSL/TLS (Certificados Let's Encrypt)</li>
+                        <li><i class="fas fa-circle"></i> Auditoría de logs (journalctl, logrotate)</li>
+                        <li><i class="fas fa-circle"></i> Monitoreo (htop, iotop, netstat)</li>
+                        <li><i class="fas fa-circle"></i> Seguridad en sitios web (WAF, escaneo de vulnerabilidades)</li>
+                        <li><i class="fas fa-circle"></i> Backups automatizados (rsync, tar, scripts cron)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="servidor-card">
+                    <span class="icono">🔄</span>
+                    <h5>Automatización y Scripting</h5>
+                    <p class="descripcion">Automatización de tareas repetitivas y mantenimiento de servidores con scripts.</p>
+                    <ul>
+                        <li><i class="fas fa-circle"></i> Bash Scripting (Automatización de tareas)</li>
+                        <li><i class="fas fa-circle"></i> Cron jobs (Programación de tareas automáticas)</li>
+                        <li><i class="fas fa-circle"></i> Scripts de respaldo y restauración</li>
+                        <li><i class="fas fa-circle"></i> Monitorización de recursos y alertas</li>
+                        <li><i class="fas fa-circle"></i> Actualización automatizada de paquetes</li>
+                        <li><i class="fas fa-circle"></i> Despliegue de aplicaciones web</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+    PROYECTOS CON IMÁGENES Y MINIATURAS
+    ========================================== -->
+    <section id="proyectos" class="container py-4">
+        <div class="section-title"><i class="fas fa-folder-open"></i> Proyectos Destacados</div>
+        <p class="text-muted mb-4" style="font-size: 1.05rem;">Sistemas empresariales desarrollados a medida para optimizar procesos y reducir costos operativos.</p>
+
+        <div class="row g-4">
+            <!-- Proyecto 1 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="proyecto-card" id="proyecto-1">
+                    <div class="proyecto-imagen">
+                        <img id="img-principal-1" src="images/portafolio/proyecto1_1.jpg" alt="Sistema de Gestión de Vehículos y Mantenimiento" style="cursor: pointer;" onclick="abrirModalImagen(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'fallback-icono\'>🚗</div>'">
+                        <span class="badge-multi-imagen"><i class="fas fa-images"></i> 3</span>
+                        <div class="miniaturas-container">
+                            <div class="miniatura-item activa" onclick="event.stopPropagation(); cambiarImagenPrincipal(1, 0)"><img src="images/portafolio/proyecto1_1.jpg" alt="Miniatura 1"></div>
+                            <div class="miniatura-item" onclick="event.stopPropagation(); cambiarImagenPrincipal(1, 1)"><img src="images/portafolio/proyecto1_2.jpg" alt="Miniatura 2"></div>
+                            <div class="miniatura-item" onclick="event.stopPropagation(); cambiarImagenPrincipal(1, 2)"><img src="images/portafolio/proyecto1_3.jpg" alt="Miniatura 3"></div>
+                        </div>
+                    </div>
+                    <div class="proyecto-header">
+                        <span class="icono">🚗</span>
+                        <span class="categoria">Sistema Empresarial</span>
+                    </div>
+                    <div class="body">
+                        <h4>Sistema de Gestión de Vehículos y Mantenimiento</h4>
+                        <p>Sistema integral para la gestión de una flota de vehículos. Permite registrar vehículos, asignar encargados, programar mantenimientos (Oro/Plata/Bronce), enviar recordatorios automáticos por correo y generar reportes de costos.</p>
+                        <ul class="caracteristicas">
+                            <li><i class="fas fa-circle"></i> CRUD completo de vehículos</li>
+                            <li><i class="fas fa-circle"></i> Mantenimientos con checklist por tipo</li>
+                            <li><i class="fas fa-circle"></i> Historial de servicios por vehículo</li>
+                            <li><i class="fas fa-circle"></i> Recordatorios automáticos vía correo electrónico</li>
+                            <li><i class="fas fa-circle"></i> <em style="color: var(--text-muted);">+ más funcionalidades</em></li>
+                        </ul>
+                    </div>
+                    <div class="footer">
+                        <span class="tech-tag">PHP 5.6</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">jQuery</span>
+                        <span class="tech-tag">PHPMailer</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proyecto 2 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="proyecto-card" id="proyecto-2">
+                    <div class="proyecto-imagen">
+                        <img id="img-principal-2" src="images/portafolio/proyecto2_1.jpg" alt="Sistema de Control de Asistencia" style="cursor: pointer;" onclick="abrirModalImagen(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'fallback-icono\'>⏰</div>'">
+                        <span class="badge-multi-imagen"><i class="fas fa-images"></i> 3</span>
+                        <div class="miniaturas-container">
+                            <div class="miniatura-item activa" onclick="event.stopPropagation(); cambiarImagenPrincipal(2, 0)"><img src="images/portafolio/proyecto2_1.jpg" alt="Miniatura 1"></div>
+                            <div class="miniatura-item" onclick="event.stopPropagation(); cambiarImagenPrincipal(2, 1)"><img src="images/portafolio/proyecto2_2.jpg" alt="Miniatura 2"></div>
+                            <div class="miniatura-item" onclick="event.stopPropagation(); cambiarImagenPrincipal(2, 2)"><img src="images/portafolio/proyecto2_3.jpg" alt="Miniatura 3"></div>
+                        </div>
+                    </div>
+                    <div class="proyecto-header">
+                        <span class="icono">⏰</span>
+                        <span class="categoria">Sistema de Recursos Humanos</span>
+                    </div>
+                    <div class="body">
+                        <h4>Sistema de Control de Asistencia con Análisis de Descansos</h4>
+                        <p>Sistema avanzado de control de asistencia que procesa checadas, calcula horas laboradas, detecta retardos, analiza el cumplimiento de descansos (con ajuste automático de entradas), justifica faltas y genera reportes detallados con excedentes semanales.</p>
+                        <ul class="caracteristicas">
+                            <li><i class="fas fa-circle"></i> Procesamiento de checadas (entrada/salida)</li>
+                            <li><i class="fas fa-circle"></i> Cálculo de horas laboradas con ajuste de entradas</li>
+                            <li><i class="fas fa-circle"></i> Análisis de descanso (duración y horario)</li>
+                            <li><i class="fas fa-circle"></i> Justificación de faltas con archivo adjunto</li>
+                            <li><i class="fas fa-circle"></i> <em style="color: var(--text-muted);">+ más funcionalidades</em></li>
+                        </ul>
+                    </div>
+                    <div class="footer">
+                        <span class="tech-tag">PHP 5.6</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">jQuery</span>
+                        <span class="tech-tag">Bootstrap</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proyecto 3 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="proyecto-card" id="proyecto-3">
+                    <div class="proyecto-imagen">
+                        <img id="img-principal-3" src="images/portafolio/proyecto3_1.jpg" alt="Módulo de Costeo de Productos" style="cursor: pointer;" onclick="abrirModalImagen(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'fallback-icono\'>💰</div>'">
+                        <span class="badge-multi-imagen"><i class="fas fa-images"></i> 3</span>
+                        <div class="miniaturas-container">
+                            <div class="miniatura-item activa" onclick="event.stopPropagation(); cambiarImagenPrincipal(3, 0)"><img src="images/portafolio/proyecto3_1.jpg" alt="Miniatura 1"></div>
+                            <div class="miniatura-item" onclick="event.stopPropagation(); cambiarImagenPrincipal(3, 1)"><img src="images/portafolio/proyecto3_2.jpg" alt="Miniatura 2"></div>
+                            <div class="miniatura-item" onclick="event.stopPropagation(); cambiarImagenPrincipal(3, 2)"><img src="images/portafolio/proyecto3_3.jpg" alt="Miniatura 3"></div>
+                        </div>
+                    </div>
+                    <div class="proyecto-header">
+                        <span class="icono">💰</span>
+                        <span class="categoria">Sistema de Producción</span>
+                    </div>
+                    <div class="body">
+                        <h4>Módulo de Costeo de Productos en Tiempo Real</h4>
+                        <p>Herramienta para calcular costos de productos usando materiales, desperdicios, costos variables y márgenes. Permite seleccionar materiales, definir dimensiones y unidades, y obtener precios sugeridos para aficionado, mayoreo y especial.</p>
+                        <ul class="caracteristicas">
+                            <li><i class="fas fa-circle"></i> Búsqueda y selección de materiales</li>
+                            <li><i class="fas fa-circle"></i> Cálculo de piezas por material (con conversión de unidades)</li>
+                            <li><i class="fas fa-circle"></i> Aplicación de desperdicios y costos variables</li>
+                            <li><i class="fas fa-circle"></i> Cálculo de precios con diferentes márgenes</li>
+                            <li><i class="fas fa-circle"></i> <em style="color: var(--text-muted);">+ más funcionalidades</em></li>
+                        </ul>
+                    </div>
+                    <div class="footer">
+                        <span class="tech-tag">PHP 5.6</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Ajax</span>
+                        <span class="tech-tag">Bootstrap</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proyecto 4 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="proyecto-card" id="proyecto-4">
+                    <div class="proyecto-imagen">
+                        <img id="img-principal-4" src="images/portafolio/proyecto4_1.jpg" alt="Sistema de Cierres de Minilab" style="cursor: pointer;" onclick="abrirModalImagen(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'fallback-icono\'>🖨️</div>'">
+                        <span class="badge-multi-imagen"><i class="fas fa-images"></i> 3</span>
+                        <div class="miniaturas-container">
+                            <div class="miniatura-item activa" onclick="event.stopPropagation(); cambiarImagenPrincipal(4, 0)"><img src="images/portafolio/proyecto4_1.jpg" alt="Miniatura 1"></div>
+                            <div class="miniatura-item" onclick="event.stopPropagation(); cambiarImagenPrincipal(4, 1)"><img src="images/portafolio/proyecto4_2.jpg" alt="Miniatura 2"></div>
+                            <div class="miniatura-item" onclick="event.stopPropagation(); cambiarImagenPrincipal(4, 2)"><img src="images/portafolio/proyecto4_3.jpg" alt="Miniatura 3"></div>
+                        </div>
+                    </div>
+                    <div class="proyecto-header">
+                        <span class="icono">🖨️</span>
+                        <span class="categoria">Sistema de Producción</span>
+                    </div>
+                    <div class="body">
+                        <h4>Sistema de Gestión de Cierres de Minilab y Control de Producción</h4>
+                        <p>Sistema especializado para el control de producción en laboratorios fotográficos y de impresión. Permite gestionar cierres de máquinas, controlar el consumo de tintas, registrar desperdicios y calcular la eficiencia operativa de los equipos.</p>
+                        <ul class="caracteristicas">
+                            <li><i class="fas fa-circle"></i> Registro de cierres de máquina con control de contadores</li>
+                            <li><i class="fas fa-circle"></i> Gestión de canales de impresión por máquina</li>
+                            <li><i class="fas fa-circle"></i> Control de consumo de tintas y materiales</li>
+                            <li><i class="fas fa-circle"></i> Registro de desperdicios por tipo y tamaño</li>
+                            <li><i class="fas fa-circle"></i> <em style="color: var(--text-muted);">+ más funcionalidades</em></li>
+                        </ul>
+                    </div>
+                    <div class="footer">
+                        <span class="tech-tag">PHP 5.6</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">jQuery</span>
+                        <span class="tech-tag">Bootstrap</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proyecto 5 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="proyecto-card" id="proyecto-5">
+                    <div class="proyecto-imagen">
+                        <img id="img-principal-5" src="images/portafolio/proyecto5_1.jpg" alt="Sistema FaciOne" style="cursor: pointer;" onclick="abrirModalImagen(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'fallback-icono\'>🏢</div>'">
+                        <span class="badge-multi-imagen"><i class="fas fa-images"></i> 3</span>
+                        <div class="miniaturas-container">
+                            <div class="miniatura-item activa" onclick="event.stopPropagation(); cambiarImagenPrincipal(5, 0)"><img src="images/portafolio/proyecto5_1.jpg" alt="Miniatura 1"></div>
+                            <div class="miniatura-item" onclick="event.stopPropagation(); cambiarImagenPrincipal(5, 1)"><img src="images/portafolio/proyecto5_2.jpg" alt="Miniatura 2"></div>
+                            <div class="miniatura-item" onclick="event.stopPropagation(); cambiarImagenPrincipal(5, 2)"><img src="images/portafolio/proyecto5_3.jpg" alt="Miniatura 3"></div>
+                        </div>
+                    </div>
+                    <div class="proyecto-header">
+                        <span class="icono">🏢</span>
+                        <span class="categoria">Sistema Empresarial Completo</span>
+                    </div>
+                    <div class="body">
+                        <h4>Sistema FaciOne - Punto de Venta e Intranet Empresarial</h4>
+                        <p>Sistema integral de Punto de Venta e Intranet para una empresa con 7 sucursales, 1 bodega y más de 50 colaboradores. Incluye módulos de ventas, inventario, traspasos, clientes, convenios, metas, cortes de caja y control de créditos. Desarrollado con arquitectura MVC en PHP 8.2.</p>
+                        <ul class="caracteristicas">
+                            <li><i class="fas fa-circle"></i> Punto de Venta con carrito en tiempo real y múltiples métodos de pago</li>
+                            <li><i class="fas fa-circle"></i> Control de inventario con traspasos entre sucursales</li>
+                            <li><i class="fas fa-circle"></i> Gestión de clientes con precios especiales por convenio</li>
+                            <li><i class="fas fa-circle"></i> Módulo de metas y resultados semanales</li>
+                            <li><i class="fas fa-circle"></i> <em style="color: var(--text-muted);">+ más funcionalidades</em></li>
+                        </ul>
+                    </div>
+                    <div class="footer">
+                        <span class="tech-tag">PHP 8.2</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">MVC</span>
+                        <span class="tech-tag">AdminLTE 4</span>
+                        <span class="tech-tag">Bootstrap 5</span>
+                        <span class="tech-tag">jQuery</span>
+                        <span class="tech-tag">AJAX</span>
+                        <span class="tech-tag">SweetAlert2</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+        Y MÁS PROYECTOS...
+        ========================================== -->
+        <div class="text-center mt-5 pt-3">
+            <div style="background: linear-gradient(135deg, #f8fafc, #e8edf5); border-radius: var(--border-radius); padding: 2rem 1.5rem; border: 1px solid #e9edf2;">
+                <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">
+                    <i class="fas fa-ellipsis-h" style="color: var(--primary-color);"></i>
+                    <i class="fas fa-ellipsis-h" style="color: var(--secondary-color);"></i>
+                    <i class="fas fa-ellipsis-h" style="color: var(--primary-color);"></i>
+                </div>
+                <h5 style="color: var(--primary-color); font-weight: 700; margin-bottom: 0.5rem;">Y más proyectos...</h5>
+                <p class="text-muted" style="font-size: 0.95rem; max-width: 600px; margin: 0 auto;">
+                    Cada cliente tiene necesidades únicas. He desarrollado múltiples soluciones
+                    a medida que no se muestran aquí por confidencialidad.
+                    <br>
+                    <strong style="color: var(--secondary-color);">¿Tienes un proyecto en mente? ¡Hablemos!</strong>
+                </p>
+                <div class="mt-3">
+                    <a href="#contacto" class="btn btn-primary" style="background: var(--gradient-main); border: none; border-radius: 30px; padding: 0.6rem 2rem; font-weight: 600;">
+                        <i class="fas fa-comment"></i> Contáctame
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+    CONTACTO
+    ========================================== -->
+    <section id="contacto" class="container py-4 pb-5">
+        <div class="section-title"><i class="fas fa-envelope"></i> Contacto</div>
+        <div class="row g-4">
+            <div class="col-md-8 mx-auto">
+                <div class="card border-0 shadow-sm" style="border-radius: var(--border-radius);">
+                    <div class="card-body p-4 p-md-5">
+                        <p class="text-center text-muted" style="font-size: 1.05rem;">¿Interesado en desarrollar un sistema a medida o mejorar tus procesos? Contáctame y hablemos de tu proyecto.</p>
+                        <div class="row g-3 text-center mt-3">
+                            <div class="col-sm-4">
+                                <div class="p-3 rounded-3" style="background: #f8fafc;">
+                                    <i class="fas fa-envelope fa-2x" style="color: var(--primary-color);"></i>
+                                    <p class="mt-2 mb-0"><strong>Email</strong></p>
+                                    <a href="mailto:victor.fdz.fcf@gmail.com" style="color: var(--secondary-color); text-decoration: none;">victor.fdz.fcf@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="p-3 rounded-3" style="background: #f8fafc;">
+                                    <i class="fas fa-phone fa-2x" style="color: var(--primary-color);"></i>
+                                    <p class="mt-2 mb-0"><strong>Teléfono</strong></p>
+                                    <a href="tel:8991261109" style="color: var(--secondary-color); text-decoration: none;">899 126 1109</a>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="p-3 rounded-3" style="background: #f8fafc;">
+                                    <i class="fab fa-linkedin-in fa-2x" style="color: var(--primary-color);"></i>
+                                    <p class="mt-2 mb-0"><strong>LinkedIn</strong></p>
+                                    <a href="https://www.linkedin.com/in/victor-ram%C3%ADrez-fern%C3%A1ndez/" target="_blank" style="color: var(--secondary-color); text-decoration: none;">Perfil</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center mt-4">
+                            <a href="mailto:victor.fdz.fcf@gmail.com?subject=Contacto%20desde%20Portafolio" class="btn btn-primary btn-lg px-5" style="background: var(--gradient-main); border: none; border-radius: 30px; font-weight: 600;">
+                                <i class="fas fa-paper-plane me-2"></i> Enviar mensaje
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+    FOOTER
+    ========================================== -->
+    <footer class="footer-portafolio">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2025 Víctor Ramírez Fernández — Desarrollador Web Full-Stack</p>
+            <p class="mt-1" style="font-size: 0.85rem; opacity: 0.6;"><i class="fas fa-code"></i> Hecho con PHP 5.6, MySQL, Bootstrap e <i class="fas fa-heart" style="color: #ff6b6b;"></i></p>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+    MODAL PARA VER IMAGEN EN GRANDE
+    ========================================== -->
+    <div class="modal fade" id="modalImagen" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content modal-imagen-content">
+                <div class="modal-body">
+                    <button type="button" class="btn-cerrar-modal" data-bs-dismiss="modal"><i class="fas fa-times"></i></button>
+                    <img id="imagenModal" src="" alt="Vista ampliada">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- ==========================================
+    JAVASCRIPT PERSONALIZADO
+    ========================================== -->
+    <script>
+        // Función para abrir modal con imagen
+        function abrirModalImagen(ruta) {
+            var img = new Image();
+            img.onload = function() {
+                document.getElementById('imagenModal').src = ruta;
+                var modal = new bootstrap.Modal(document.getElementById('modalImagen'));
+                modal.show();
+            };
+            img.onerror = function() {
+                alert('❌ La imagen no está disponible.\nVerifica que el archivo exista en la ruta especificada.');
+            };
+            img.src = ruta;
+        }
+
+        // Almacenar imágenes por proyecto
+        var imagenesProyectos = {
+            1: ["images/portafolio/proyecto1_1.jpg", "images/portafolio/proyecto1_2.jpg", "images/portafolio/proyecto1_3.jpg"],
+            2: ["images/portafolio/proyecto2_1.jpg", "images/portafolio/proyecto2_2.jpg", "images/portafolio/proyecto2_3.jpg"],
+            3: ["images/portafolio/proyecto3_1.jpg", "images/portafolio/proyecto3_2.jpg", "images/portafolio/proyecto3_3.jpg"],
+            4: ["images/portafolio/proyecto4_1.jpg", "images/portafolio/proyecto4_2.jpg", "images/portafolio/proyecto4_3.jpg"],
+            5: ["images/portafolio/proyecto5_1.jpg", "images/portafolio/proyecto5_2.jpg", "images/portafolio/proyecto5_3.jpg"]
+        };
+
+        // Función para cambiar imagen principal
+        function cambiarImagenPrincipal(idProyecto, index) {
+            var imagenes = imagenesProyectos[idProyecto];
+            if (imagenes && imagenes[index]) {
+                var imgPrincipal = document.getElementById('img-principal-' + idProyecto);
+                if (imgPrincipal) {
+                    var nuevaImg = new Image();
+                    nuevaImg.onload = function() {
+                        imgPrincipal.src = imagenes[index];
+                        var miniaturas = document.querySelectorAll('#proyecto-' + idProyecto + ' .miniatura-item');
+                        miniaturas.forEach(function(el, i) {
+                            el.classList.toggle('activa', i == index);
+                        });
+                    };
+                    nuevaImg.onerror = function() {
+                        alert('❌ La imagen ' + (index + 1) + ' no está disponible.');
+                    };
+                    nuevaImg.src = imagenes[index];
+                }
+            }
+        }
+
+        // Cerrar modal con tecla ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                var modal = bootstrap.Modal.getInstance(document.getElementById('modalImagen'));
+                if (modal) modal.hide();
+            }
+        });
+    </script>
+
+</body>
+</html>
